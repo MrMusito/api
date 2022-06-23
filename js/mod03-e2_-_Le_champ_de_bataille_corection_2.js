@@ -34,43 +34,43 @@ function getRandomValue(max) {
 }
 
 // Séléctionner aléatoirement un joueur
-// function getRandomChar(notThisOne) {
-//     const c = characters[getRandomValue(characters.length)];
-//     if (c !== notThisOne) return c;
-//     return getRandomChar(notThisOne);
-// }
+function getRandomChar(notThisOne) {
+    const c = characters[getRandomValue(characters.length)];
+    if (c !== notThisOne) return c;
+    return getRandomChar(notThisOne);
+}
 
 // Récupérer le score d'attaque d'un joueur
-// function getAttackScore(char) {
-//     return char.xp + getRandomValue(char.weapon);
-// }
+function getAttackScore(char) {
+    return char.xp + getRandomValue(char.weapon);
+}
 
 // Récupérer le score de défense d'un joueur
-// function getDefenseScore(char) {
-//     return char.xp + getRandomValue(char.shield);
-// }
+function getDefenseScore(char) {
+    return char.xp + getRandomValue(char.shield);
+}
 
 // Baisser les points de vie d'un joueur
-// function decreaseLife(char, value) {
-//     char.life -= value;
-//     return char.life;
-// }
+function decreaseLife(char, value) {
+    char.life -= value;
+    return char.life;
+}
 
 // Sortir un joueur mort du jeu
-// function buryTheDeads() {
-//     characters = characters.filter(char => char.life > 0);
-// }
+function buryTheDeads() {
+    characters = characters.filter(char => char.life > 0);
+}
 
 // Faire s'affronter 2 joueurs
-// function fight(a, d) {
-//     const attackScore = getAttackScore(a);
-//     if (attackScore > getDefenseScore(d)) {
-//         decreaseLife(d, attackScore);
-//         buryTheDeads();
-//         return true;
-//     }
-//     return false;
-// }
+function fight(a, d) {
+    const attackScore = getAttackScore(a);
+    if (attackScore > getDefenseScore(d)) {
+        decreaseLife(d, attackScore);
+        buryTheDeads();
+        return true;
+    }
+    return false;
+}
 
 function battle() {
     const attacker = getRandomChar();
@@ -90,6 +90,47 @@ function battle() {
     return battle();
 }
 
-battle();
+// battle();
 
 // console.log(attacker, defender);
+async function waitingForResponse() {
+    const response = await fetch("https://akabab.github.io/superhero-api/api/all.json");
+    const todoList = await response.json();
+    const nameHero = todoList[0].name;
+    const imgHero = todoList[0].images.sm;
+    affichage(todoList)
+    console.log(nameHero);
+    }
+    
+    waitingForResponse();
+    
+
+    function affichage(liste) {
+        liste.forEach( hero => {
+            console.log(hero.name);
+            const nameHero1 = document.createElement("div");
+            console.log(nameHero1);
+
+
+        
+
+            
+
+            
+
+        });
+        
+    }
+  
+
+    const affichage_imgHero = document.querySelector("#imgHero")
+    const affichage_nameHero = document.querySelector("#nameHero")
+    const affichage_img1 = document.querySelector("#img1")
+    
+    // affichage_imgHero.innerHTML = imgHero;
+    // affichage_nameHero.innerHTML = nameHero;
+
+    // const img1_imgHero = `<img src= "${imgHero}">`;
+    
+
+
