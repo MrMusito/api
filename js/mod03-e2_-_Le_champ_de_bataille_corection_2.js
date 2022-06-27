@@ -96,8 +96,8 @@ function battle() {
 async function waitingForResponse() {
     const response = await fetch("https://akabab.github.io/superhero-api/api/all.json");
     const todoList = await response.json();
-    const nameHero = todoList[0].name;
-    const imgHero = todoList[0].images.sm;
+    const nameHero = todoList[length].name;
+    const imgHero = todoList[length].images.sm;
     affichage(todoList)
     console.log(nameHero);
     }
@@ -108,29 +108,31 @@ async function waitingForResponse() {
     function affichage(liste) {
         liste.forEach( hero => {
             console.log(hero.name);
-            const nameHero1 = document.createElement("div");
-            console.log(nameHero1);
+            console.log(hero.images.sm);
+            const nameHero2 = hero.name
+            const nameHero1 = document.createElement("option");
+            nameHero1.innerHTML = nameHero2
+            const emplacemrntDiv = document.querySelector("#enplacement")
+            emplacemrntDiv.appendChild(nameHero1)
+
+            const imgHero1 = hero.images.sm
+            const emplacemrntImg = document.querySelector('#emplacement2')
+            emplacemrntImg.innerHTML += `<img src = "${imgHero1}"/>`
+
+            const container = document.querySelector("#emplacement2")
+
+            
+
+
 
 
         
-
-            
-
-            
 
         });
         
     }
-  
 
-    const affichage_imgHero = document.querySelector("#imgHero")
-    const affichage_nameHero = document.querySelector("#nameHero")
-    const affichage_img1 = document.querySelector("#img1")
-    
-    // affichage_imgHero.innerHTML = imgHero;
-    // affichage_nameHero.innerHTML = nameHero;
 
-    // const img1_imgHero = `<img src= "${imgHero}">`;
     
 
 

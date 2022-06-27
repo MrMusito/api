@@ -1,3 +1,22 @@
 h1 {
     text-align: center;
 }
+.emplacementHero{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    bottom: 13px;    
+}
+.design{
+    height: 50px;
+    width: 200px;
+    text-align: center;
+    background-color: goldenrod;
+    border-radius: 15px;
+}
+
+.emplacementHero2{
+    border-radius: 15px;
+
+}
