@@ -1,5 +1,8 @@
 h1 {
     text-align: center;
+    position: relative;
+    right: 400px;
+    
 }
 .emplacementHero{
     position: relative;
@@ -14,9 +17,62 @@ h1 {
     text-align: center;
     background-color: goldenrod;
     border-radius: 15px;
+    position: relative;
+    right: 400px;
+
 }
 
 .emplacementHero2{
     border-radius: 15px;
+    cursor : pointer;
+    position: relative;
+    right: 840px;
+    
+    
+}
+
+.emplacementHero3{
+    border-radius: 15px;
+    cursor : pointer;
+    position: relative;
+    display: flex;    
+    top: 50px;
+    left: 22px;
+
+}
+.design2{
+    position: relative;
+    display: contents;
+    width: 100vh;
+    height:100vw;
+    justify-content: left;
+    align-content: flex-end;
+
+
+
+
+}
+.designBtn{
+    cursor: pointer;
+    background-color: brown;
+    width: 100px;
+    height: 50px;
+    border-radius: 50px;
+    position: relative;
+    right: 400px;
+
+}
+.gif{
+    width: 100vh;
+  height:100vw;
+  transform: translateX(100%);
+  transform-origin: 0 0;
+  background: url('/img/battfield.png') no-repeat center fixed;
+  background-size:cover;
+  -webkit-background-size: cover;
+  background-size: cover;
+  margin:0;
+  padding:0;
+
 
 }

@@ -107,8 +107,38 @@ async function waitingForResponse() {
 
     function affichage(liste) {
         liste.forEach( hero => {
+
+            function getRandom(max) {
+                return Math.floor(Math.random() * max);
+              }
+              
+              
             console.log(hero.name);
             console.log(hero.images.sm);
+            console.log(hero.powerstats);
+            const lifeHero = hero.powerstats.life = hero.powerstats.durability*10 
+            console.log("vie",lifeHero);
+            const xp = hero.powerstats.xp = getRandom(hero.powerstats.combat) 
+            console.log("xp", xp);
+            const weapon = hero.powerstats.weapon = hero.powerstats.power+ hero.powerstats.strength
+            console.log("attaque", weapon); 
+            const shield = hero.powerstats.shield = hero.powerstats.durability+hero.powerstats.speed
+            console.log("defense", shield);
+
+            function getRandomHero(notThisOneHero) {
+                const h = hero[getRandom(hero.name.length)];
+                if (h !== notThisOneHero) return c;
+                return getRandomHero(notThisOneHero);
+            }
+
+
+            function getAttackScoreHero(her) {
+                return her.xp + getRandom(weapon);
+            }
+            
+
+
+
             const nameHero2 = hero.name
             const nameHero1 = document.createElement("option");
             nameHero1.innerHTML = nameHero2
@@ -118,19 +148,70 @@ async function waitingForResponse() {
             const imgHero1 = hero.images.sm
             const emplacemrntImg = document.querySelector('#emplacement2')
             emplacemrntImg.innerHTML += `<img src = "${imgHero1}"/>`
-
             const container = document.querySelector("#emplacement2")
 
-            
 
 
 
 
+
+
+            const listeHero = document.querySelector('#emplacement2')
+            const heroFinal = document.querySelector('#hero-final');
+            let heroCount = document.querySelector("#result")
         
+            function counter(){
+                heroCount.innerText = heroFinal.childElementCount;
+            }
+        
+            function addHero(event) {
+                if(parseInt(heroFinal.childElementCount) >= 2) return;
+                heroFinal.append(this.parentElement);
+                counter();
+                this.removeEventListener('click', addHero);
+                this.addEventListener('click', removeHero);
+                
+            }
+        
+            function removeHero(event) {
+                listeHero.append(this.parentElement);
+                counter();
+                this.addEventListener('click', addHero);
+                this.removeEventListener('click', removeHero);
+                
+            }
+
+            // console.log("==> ",imgHero1);
+            // imgHero1.forEach(function(element){   
+                
+            //     const button = document.createElement('button');            
+            //     button.classList.add('button');
+            //     button.append(element)
+                
+            //     let li = document.createElement('li');
+            //     li.append(button);
+            //     listeHero.append(li);
+        
+            //     button.addEventListener('click', addHero);
+            
+            // });
+        
+
+
+
+             
+
+
 
         });
         
     }
+
+    
+
+
+
+
 
 
     
